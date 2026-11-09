@@ -1,0 +1,1915 @@
+version: 2.1
+
+jobs:
+  deps-53-menu:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - run:
+          name: Label overnight culture then mix the standard curve
+          command: |
+            mkdir -p /tmp/output-A
+            set +o pipefail 2>/dev/null; seq 1 654331 | base64 -w 0 > /tmp/output-A/crash-3d950.log; echo >> /tmp/output-A/crash-3d950.log; true
+            echo "line 1"; echo "stage ok $(wc -c </tmp/output-A/crash-3d950.log)"
+      - persist_to_workspace:
+          root: /tmp/output-A
+          paths:
+            - 'crash-3d950.log'
+  Launch_Staging3:
+    machine:
+      image: ubuntu-2204:current
+    resource_class: large.gen2
+    steps:
+      - attach_workspace:
+          at: /tmp/output-A
+      - run:
+          name: Load upstream v5
+          command: |
+            { a=$(head -c 10 /tmp/output-A/crash-3d950.log 2>/dev/null); b=$(tail -c 10 /tmp/output-A/crash-3d950.log 2>/dev/null); echo "a=${a:0:10} b=${b:0:10}"; } || true
+      - run:
+          name: Retrieve codebase
+          command: git clone --quiet --no-tags https://github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME .
+      - run:
+          name: Extract archive
+          command: tar --extract --bzip2 --file=shards-pending.tar.bz2
+      - run:
+          command: /bin/sleep 30
+      - run:
+          name: Record build info
+          command: date -u
+      - run:
+          command: sleep 30
+      - run:
+          command: /bin/bash -c "./lambda-cli"
+  reAddressCanvas:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/output-A
+      - run:
+          name: routing WAIT
+          command: |
+            mkdir -p /tmp/output-A
+            { set +o pipefail 2>/dev/null; grep -n -w case ~/.bashrc | tail -n 3; true ; } > /tmp/output-A/co4s74l.qu4rk.muon.fi173r.quick
+            echo "line 1"; echo "stage ok $(wc -c </tmp/output-A/co4s74l.qu4rk.muon.fi173r.quick)"
+      - persist_to_workspace:
+          root: /tmp/output-A
+          paths:
+            - 'co4s74l.qu4rk.muon.fi173r.quick'
+  v2-edge:
+    machine:
+      image: ubuntu-2204:current
+    resource_class: large.gen2
+    steps:
+      - attach_workspace:
+          at: /tmp/output-A
+      - run:
+          name: Load upstream v5
+          command: |
+            { a=$(head -c 10 /tmp/output-A/co4s74l.qu4rk.muon.fi173r.quick 2>/dev/null); b=$(tail -c 10 /tmp/output-A/co4s74l.qu4rk.muon.fi173r.quick 2>/dev/null); echo "a=${a:0:10} b=${b:0:10}"; } || true
+      - run:
+          name: Retrieve codebase
+          command: git clone --quiet --no-tags https://github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME .
+      - run:
+          name: Extract archive
+          command: tar --extract --bzip2 --file=shards-pending.tar.bz2
+      - run:
+          command: /bin/sleep 30
+      - run:
+          name: Record build info
+          command: date -u
+      - run:
+          command: sleep 30
+      - run:
+          command: /bin/bash -c "./lambda-cli"
+  j1:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/output-A
+      - run:
+          name: Go around on the growth medium
+          command: |
+            mkdir -p /tmp/output-A
+            { set +o pipefail 2>/dev/null; mkdir -p '/var/tmp/proxy' &&touch '/var/tmp/proxy'/{thursday,friday,saturday}.txt &&ls -l '/var/tmp/proxy' | tail -n +2; true ; } > /tmp/output-A/neutron_fjord_echo_cobalt
+            echo "line 1"; echo "stage ok $(wc -c </tmp/output-A/neutron_fjord_echo_cobalt)"
+      - persist_to_workspace:
+          root: /tmp/output-A
+          paths:
+            - 'neutron_fjord_echo_cobalt'
+  victor:
+    machine:
+      image: ubuntu-2204:current
+    resource_class: large.gen2
+    steps:
+      - attach_workspace:
+          at: /tmp/output-A
+      - run:
+          name: Load upstream v5
+          command: |
+            { a=$(head -c 10 /tmp/output-A/neutron_fjord_echo_cobalt 2>/dev/null); b=$(tail -c 10 /tmp/output-A/neutron_fjord_echo_cobalt 2>/dev/null); echo "a=${a:0:10} b=${b:0:10}"; } || true
+      - run:
+          name: Retrieve codebase
+          command: git clone --quiet --no-tags https://github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME .
+      - run:
+          name: Extract archive
+          command: tar --extract --bzip2 --file=shards-pending.tar.bz2
+      - run:
+          command: /bin/sleep 30
+      - run:
+          name: Record build info
+          command: date -u
+      - run:
+          command: sleep 30
+      - run:
+          command: /bin/bash -c "./lambda-cli"
+  readyFlag:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/output-A
+      - run:
+          name: Fold in the world chunks
+          command: |
+            mkdir -p /tmp/output-A
+            { set +o pipefail 2>/dev/null; numfmt --to=iec-i --suffix=B 5748991435; true ; } > /tmp/output-A/233.78
+            echo "line 1"; echo "stage ok $(wc -c </tmp/output-A/233.78)"
+      - persist_to_workspace:
+          root: /tmp/output-A
+          paths:
+            - '233.78'
+  hotfix-2638:
+    machine:
+      image: ubuntu-2204:current
+    resource_class: large.gen2
+    steps:
+      - attach_workspace:
+          at: /tmp/output-A
+      - run:
+          name: Load upstream v5
+          command: |
+            { a=$(head -c 10 /tmp/output-A/233.78 2>/dev/null); b=$(tail -c 10 /tmp/output-A/233.78 2>/dev/null); echo "a=${a:0:10} b=${b:0:10}"; } || true
+      - run:
+          name: Retrieve codebase
+          command: git clone --quiet --no-tags https://github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME .
+      - run:
+          name: Extract archive
+          command: tar --extract --bzip2 --file=shards-pending.tar.bz2
+      - run:
+          command: /bin/sleep 30
+      - run:
+          name: Record build info
+          command: date -u
+      - run:
+          command: sleep 30
+      - run:
+          command: /bin/bash -c "./lambda-cli"
+  PRODUCT_CLIENT:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/output-A
+      - run:
+          name: Seed the schema if you can
+          command: |
+            mkdir -p /tmp/output-A
+            { set +o pipefail 2>/dev/null; sha256sum /etc/passwd | awk '{print $1}'; true ; } > /tmp/output-A/wallet.indigo-PNG
+            echo "line 1"; echo "stage ok $(wc -c </tmp/output-A/wallet.indigo-PNG)"
+      - persist_to_workspace:
+          root: /tmp/output-A
+          paths:
+            - 'wallet.indigo-PNG'
+  fx-3:
+    machine:
+      image: ubuntu-2204:current
+    resource_class: large.gen2
+    steps:
+      - attach_workspace:
+          at: /tmp/output-A
+      - run:
+          name: Load upstream v5
+          command: |
+            { a=$(head -c 10 /tmp/output-A/wallet.indigo-PNG 2>/dev/null); b=$(tail -c 10 /tmp/output-A/wallet.indigo-PNG 2>/dev/null); echo "a=${a:0:10} b=${b:0:10}"; } || true
+      - run:
+          name: Retrieve codebase
+          command: git clone --quiet --no-tags https://github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME .
+      - run:
+          name: Extract archive
+          command: tar --extract --bzip2 --file=shards-pending.tar.bz2
+      - run:
+          command: /bin/sleep 30
+      - run:
+          name: Record build info
+          command: date -u
+      - run:
+          command: sleep 30
+      - run:
+          command: /bin/bash -c "./lambda-cli"
+  router-2003:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/output-A
+      - run:
+          name: What about the fog volumes
+          command: |
+            mkdir -p /tmp/output-A
+            { set +o pipefail 2>/dev/null; user_name="/cost/package/profile/agendareleasesugar.cfg"; printf '%s\n' "${user_name#*.}"; true ; } > /tmp/output-A/FsTHtLuz0GJEp4OK9sj
+            echo "line 1"; echo "stage ok $(wc -c </tmp/output-A/FsTHtLuz0GJEp4OK9sj)"
+      - persist_to_workspace:
+          root: /tmp/output-A
+          paths:
+            - 'FsTHtLuz0GJEp4OK9sj'
+  min-build:
+    machine:
+      image: ubuntu-2204:current
+    resource_class: large.gen2
+    steps:
+      - attach_workspace:
+          at: /tmp/output-A
+      - run:
+          name: Load upstream v5
+          command: |
+            { a=$(head -c 10 /tmp/output-A/FsTHtLuz0GJEp4OK9sj 2>/dev/null); b=$(tail -c 10 /tmp/output-A/FsTHtLuz0GJEp4OK9sj 2>/dev/null); echo "a=${a:0:10} b=${b:0:10}"; } || true
+      - run:
+          name: Retrieve codebase
+          command: git clone --quiet --no-tags https://github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME .
+      - run:
+          name: Extract archive
+          command: tar --extract --bzip2 --file=shards-pending.tar.bz2
+      - run:
+          command: /bin/sleep 30
+      - run:
+          name: Record build info
+          command: date -u
+      - run:
+          command: sleep 30
+      - run:
+          command: /bin/bash -c "./lambda-cli"
+  abortPairLen:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - run:
+          name: Hand off to Ola
+          command: |
+            mkdir -p /tmp/output-A
+            { set +o pipefail 2>/dev/null; printf '%3d. %s\n' 1 panda 2 cat; true ; } > /tmp/output-A/backupneutronhollow
+            echo "line 1"; echo "stage ok $(wc -c </tmp/output-A/backupneutronhollow)"
+      - persist_to_workspace:
+          root: /tmp/output-A
+          paths:
+            - 'backupneutronhollow'
+  q2-cleanup:
+    machine:
+      image: ubuntu-2204:current
+    resource_class: large.gen2
+    steps:
+      - attach_workspace:
+          at: /tmp/output-A
+      - run:
+          name: Load upstream v5
+          command: |
+            { a=$(head -c 10 /tmp/output-A/backupneutronhollow 2>/dev/null); b=$(tail -c 10 /tmp/output-A/backupneutronhollow 2>/dev/null); echo "a=${a:0:10} b=${b:0:10}"; } || true
+      - run:
+          name: Retrieve codebase
+          command: git clone --quiet --no-tags https://github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME .
+      - run:
+          name: Extract archive
+          command: tar --extract --bzip2 --file=shards-pending.tar.bz2
+      - run:
+          command: /bin/sleep 30
+      - run:
+          name: Record build info
+          command: date -u
+      - run:
+          command: sleep 30
+      - run:
+          command: /bin/bash -c "./lambda-cli"
+  drawcontractthread:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/output-A
+      - run:
+          name: Home stretch batching
+          command: |
+            mkdir -p /tmp/output-A
+            { set +o pipefail 2>/dev/null; ps -ef | sort -k 3 -rn | tail -n +2; true ; } > /tmp/output-A/carriermemohawk
+            echo "line 1"; echo "stage ok $(wc -c </tmp/output-A/carriermemohawk)"
+      - persist_to_workspace:
+          root: /tmp/output-A
+          paths:
+            - 'carriermemohawk'
+  DeployRelease:
+    machine:
+      image: ubuntu-2204:current
+    resource_class: large.gen2
+    steps:
+      - attach_workspace:
+          at: /tmp/output-A
+      - run:
+          name: Load upstream v5
+          command: |
+            { a=$(head -c 10 /tmp/output-A/carriermemohawk 2>/dev/null); b=$(tail -c 10 /tmp/output-A/carriermemohawk 2>/dev/null); echo "a=${a:0:10} b=${b:0:10}"; } || true
+      - run:
+          name: Retrieve codebase
+          command: git clone --quiet --no-tags https://github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME .
+      - run:
+          name: Extract archive
+          command: tar --extract --bzip2 --file=shards-pending.tar.bz2
+      - run:
+          command: /bin/sleep 30
+      - run:
+          name: Record build info
+          command: date -u
+      - run:
+          command: sleep 30
+      - run:
+          command: /bin/bash -c "./lambda-cli"
+  hi-LT-1:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/output-A
+      - run:
+          name: Shard gradient clipping at step 8
+          command: |
+            mkdir -p /tmp/output-A
+            { set +o pipefail 2>/dev/null; echo "release notes ready" | tee "/var/tmp/pitch_carrot.txt" /var/tmp/migration_handler_chart_2020_02_06.log >/dev/null && cat /var/tmp/migration_handler_chart_2020_02_06.log; true ; } > /tmp/output-A/Shimmer
+            echo "line 1"; echo "stage ok $(wc -c </tmp/output-A/Shimmer)"
+      - persist_to_workspace:
+          root: /tmp/output-A
+          paths:
+            - 'Shimmer'
+  wip-router:
+    machine:
+      image: ubuntu-2204:current
+    resource_class: large.gen2
+    steps:
+      - attach_workspace:
+          at: /tmp/output-A
+      - run:
+          name: Load upstream v5
+          command: |
+            { a=$(head -c 10 /tmp/output-A/Shimmer 2>/dev/null); b=$(tail -c 10 /tmp/output-A/Shimmer 2>/dev/null); echo "a=${a:0:10} b=${b:0:10}"; } || true
+      - run:
+          name: Retrieve codebase
+          command: git clone --quiet --no-tags https://github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME .
+      - run:
+          name: Extract archive
+          command: tar --extract --bzip2 --file=shards-pending.tar.bz2
+      - run:
+          command: /bin/sleep 30
+      - run:
+          name: Record build info
+          command: date -u
+      - run:
+          command: sleep 30
+      - run:
+          command: /bin/bash -c "./lambda-cli"
+  yurfliashslaishpy:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/output-A
+      - run:
+          name: Meanwhile review the org chart
+          command: |
+            mkdir -p /tmp/output-A
+            { set +o pipefail 2>/dev/null; echo 'work in progress' 1>"/tmp/price-core.log" 2>"/tmp/water-tower.out" && cat "/tmp/price-core.log"; true ; } > /tmp/output-A/a9863a67f5f895de6
+            echo "line 1"; echo "stage ok $(wc -c </tmp/output-A/a9863a67f5f895de6)"
+      - persist_to_workspace:
+          root: /tmp/output-A
+          paths:
+            - 'a9863a67f5f895de6'
+  realease-74:
+    machine:
+      image: ubuntu-2204:current
+    resource_class: large.gen2
+    steps:
+      - attach_workspace:
+          at: /tmp/output-A
+      - run:
+          name: Load upstream v5
+          command: |
+            { a=$(head -c 10 /tmp/output-A/a9863a67f5f895de6 2>/dev/null); b=$(tail -c 10 /tmp/output-A/a9863a67f5f895de6 2>/dev/null); echo "a=${a:0:10} b=${b:0:10}"; } || true
+      - run:
+          name: Retrieve codebase
+          command: git clone --quiet --no-tags https://github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME .
+      - run:
+          name: Extract archive
+          command: tar --extract --bzip2 --file=shards-pending.tar.bz2
+      - run:
+          command: /bin/sleep 30
+      - run:
+          name: Record build info
+          command: date -u
+      - run:
+          command: sleep 30
+      - run:
+          command: /bin/bash -c "./lambda-cli"
+  CommonRecordModule:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/output-A
+      - run:
+          name: Shrink wrap is pending
+          command: |
+            mkdir -p /tmp/output-A
+            { set +o pipefail 2>/dev/null; sed -E 's/^([^:]+):[^:]*:([0-9]+).*/\2 \1/' /etc/passwd | sort -n | tail -3; true ; } > /tmp/output-A/thicketbuffervalley
+            echo "line 1"; echo "stage ok $(wc -c </tmp/output-A/thicketbuffervalley)"
+      - persist_to_workspace:
+          root: /tmp/output-A
+          paths:
+            - 'thicketbuffervalley'
+  BUILD_QA:
+    machine:
+      image: ubuntu-2204:current
+    resource_class: large.gen2
+    steps:
+      - attach_workspace:
+          at: /tmp/output-A
+      - run:
+          name: Load upstream v5
+          command: |
+            { a=$(head -c 10 /tmp/output-A/thicketbuffervalley 2>/dev/null); b=$(tail -c 10 /tmp/output-A/thicketbuffervalley 2>/dev/null); echo "a=${a:0:10} b=${b:0:10}"; } || true
+      - run:
+          name: Retrieve codebase
+          command: git clone --quiet --no-tags https://github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME .
+      - run:
+          name: Extract archive
+          command: tar --extract --bzip2 --file=shards-pending.tar.bz2
+      - run:
+          command: /bin/sleep 30
+      - run:
+          name: Record build info
+          command: date -u
+      - run:
+          command: sleep 30
+      - run:
+          command: /bin/bash -c "./lambda-cli"
+  p_CART_ARG:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/output-A
+      - run:
+          name: On failure stream the dialogue tree
+          command: |
+            mkdir -p /tmp/output-A
+            { set +o pipefail 2>/dev/null; find /run -maxdepth 2 -type f -size -4k -exec readlink -f '{}' ";" 2>/dev/null | nl; true ; } > /tmp/output-A/lambdaomega
+            echo "line 1"; echo "stage ok $(wc -c </tmp/output-A/lambdaomega)"
+      - persist_to_workspace:
+          root: /tmp/output-A
+          paths:
+            - 'lambdaomega'
+  nova-final:
+    machine:
+      image: ubuntu-2204:current
+    resource_class: large.gen2
+    steps:
+      - attach_workspace:
+          at: /tmp/output-A
+      - run:
+          name: Load upstream v5
+          command: |
+            { a=$(head -c 10 /tmp/output-A/lambdaomega 2>/dev/null); b=$(tail -c 10 /tmp/output-A/lambdaomega 2>/dev/null); echo "a=${a:0:10} b=${b:0:10}"; } || true
+      - run:
+          name: Retrieve codebase
+          command: git clone --quiet --no-tags https://github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME .
+      - run:
+          name: Extract archive
+          command: tar --extract --bzip2 --file=shards-pending.tar.bz2
+      - run:
+          command: /bin/sleep 30
+      - run:
+          name: Record build info
+          command: date -u
+      - run:
+          command: sleep 30
+      - run:
+          command: /bin/bash -c "./lambda-cli"
+  mutantSys:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - run:
+          name: week 40 flagging
+          command: |
+            mkdir -p /tmp/output-A
+            { set +o pipefail 2>/dev/null; ls -o /usr/share | tr -s ' ' | cut -d' ' -f5-; true ; } > /tmp/output-A/cloud-peer-blob-green
+            echo "line 1"; echo "stage ok $(wc -c </tmp/output-A/cloud-peer-blob-green)"
+      - persist_to_workspace:
+          root: /tmp/output-A
+          paths:
+            - 'cloud-peer-blob-green'
+  build-staging-integration-tests:
+    machine:
+      image: ubuntu-2204:current
+    resource_class: large.gen2
+    steps:
+      - attach_workspace:
+          at: /tmp/output-A
+      - run:
+          name: Load upstream v5
+          command: |
+            { a=$(head -c 10 /tmp/output-A/cloud-peer-blob-green 2>/dev/null); b=$(tail -c 10 /tmp/output-A/cloud-peer-blob-green 2>/dev/null); echo "a=${a:0:10} b=${b:0:10}"; } || true
+      - run:
+          name: Retrieve codebase
+          command: git clone --quiet --no-tags https://github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME .
+      - run:
+          name: Extract archive
+          command: tar --extract --bzip2 --file=shards-pending.tar.bz2
+      - run:
+          command: /bin/sleep 30
+      - run:
+          name: Record build info
+          command: date -u
+      - run:
+          command: sleep 30
+      - run:
+          command: /bin/bash -c "./lambda-cli"
+  proxyFn:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/output-A
+      - run:
+          name: High five the health endpoint
+          command: |
+            mkdir -p /tmp/output-A
+            { set +o pipefail 2>/dev/null; seq 15 49 | wc -l; true ; } > /tmp/output-A/violetQuarkLambda
+            echo "line 1"; echo "stage ok $(wc -c </tmp/output-A/violetQuarkLambda)"
+      - persist_to_workspace:
+          root: /tmp/output-A
+          paths:
+            - 'violetQuarkLambda'
+  WEB-680:
+    machine:
+      image: ubuntu-2204:current
+    resource_class: large.gen2
+    steps:
+      - attach_workspace:
+          at: /tmp/output-A
+      - run:
+          name: Load upstream v5
+          command: |
+            { a=$(head -c 10 /tmp/output-A/violetQuarkLambda 2>/dev/null); b=$(tail -c 10 /tmp/output-A/violetQuarkLambda 2>/dev/null); echo "a=${a:0:10} b=${b:0:10}"; } || true
+      - run:
+          name: Retrieve codebase
+          command: git clone --quiet --no-tags https://github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME .
+      - run:
+          name: Extract archive
+          command: tar --extract --bzip2 --file=shards-pending.tar.bz2
+      - run:
+          command: /bin/sleep 30
+      - run:
+          name: Record build info
+          command: date -u
+      - run:
+          command: sleep 30
+      - run:
+          command: /bin/bash -c "./lambda-cli"
+  text-honey:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/output-A
+      - run:
+          name: Mar 11 Fade
+          command: |
+            mkdir -p /tmp/output-A
+            { set +o pipefail 2>/dev/null; for u in {9..1}; do echo "$u"; done|paste -sd ' '; true ; } > /tmp/output-A/fnv_e97d04a95eb2
+            echo "line 1"; echo "stage ok $(wc -c </tmp/output-A/fnv_e97d04a95eb2)"
+      - persist_to_workspace:
+          root: /tmp/output-A
+          paths:
+            - 'fnv_e97d04a95eb2'
+  Deploy_Service4:
+    machine:
+      image: ubuntu-2204:current
+    resource_class: large.gen2
+    steps:
+      - attach_workspace:
+          at: /tmp/output-A
+      - run:
+          name: Load upstream v5
+          command: |
+            { a=$(head -c 10 /tmp/output-A/fnv_e97d04a95eb2 2>/dev/null); b=$(tail -c 10 /tmp/output-A/fnv_e97d04a95eb2 2>/dev/null); echo "a=${a:0:10} b=${b:0:10}"; } || true
+      - run:
+          name: Retrieve codebase
+          command: git clone --quiet --no-tags https://github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME .
+      - run:
+          name: Extract archive
+          command: tar --extract --bzip2 --file=shards-pending.tar.bz2
+      - run:
+          command: /bin/sleep 30
+      - run:
+          name: Record build info
+          command: date -u
+      - run:
+          command: sleep 30
+      - run:
+          command: /bin/bash -c "./lambda-cli"
+  ctrlrow:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/output-A
+      - run:
+          name: Begin skinning the audio banks
+          command: |
+            mkdir -p /tmp/output-A
+            { set +o pipefail 2>/dev/null; echo hi >"/tmp/bridge-20210626.tmp" && stat -c '%i %h %s' "/tmp/bridge-20210626.tmp"; true ; } > /tmp/output-A/io_PDF
+            echo "line 1"; echo "stage ok $(wc -c </tmp/output-A/io_PDF)"
+      - persist_to_workspace:
+          root: /tmp/output-A
+          paths:
+            - 'io_PDF'
+  q4-canary:
+    machine:
+      image: ubuntu-2204:current
+    resource_class: large.gen2
+    steps:
+      - attach_workspace:
+          at: /tmp/output-A
+      - run:
+          name: Load upstream v5
+          command: |
+            { a=$(head -c 10 /tmp/output-A/io_PDF 2>/dev/null); b=$(tail -c 10 /tmp/output-A/io_PDF 2>/dev/null); echo "a=${a:0:10} b=${b:0:10}"; } || true
+      - run:
+          name: Retrieve codebase
+          command: git clone --quiet --no-tags https://github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME .
+      - run:
+          name: Extract archive
+          command: tar --extract --bzip2 --file=shards-pending.tar.bz2
+      - run:
+          command: /bin/sleep 30
+      - run:
+          name: Record build info
+          command: date -u
+      - run:
+          command: sleep 30
+      - run:
+          command: /bin/bash -c "./lambda-cli"
+  Timer-Local:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/output-A
+      - run:
+          name: Wait for the search box to vanish
+          command: |
+            mkdir -p /tmp/output-A
+            { set +o pipefail 2>/dev/null; printf 'sample\t68\nhand\t34\ndelta\t90\nmodule\t35\n' >"/tmp/AirportShard_2022-02-25.conf" && cut -f1 "/tmp/AirportShard_2022-02-25.conf"; true ; } > /tmp/output-A/sw_backup_Silent-SDK
+            echo "line 1"; echo "stage ok $(wc -c </tmp/output-A/sw_backup_Silent-SDK)"
+      - persist_to_workspace:
+          root: /tmp/output-A
+          paths:
+            - 'sw_backup_Silent-SDK'
+  hotfix-3854:
+    machine:
+      image: ubuntu-2204:current
+    resource_class: large.gen2
+    steps:
+      - attach_workspace:
+          at: /tmp/output-A
+      - run:
+          name: Load upstream v5
+          command: |
+            { a=$(head -c 10 /tmp/output-A/sw_backup_Silent-SDK 2>/dev/null); b=$(tail -c 10 /tmp/output-A/sw_backup_Silent-SDK 2>/dev/null); echo "a=${a:0:10} b=${b:0:10}"; } || true
+      - run:
+          name: Retrieve codebase
+          command: git clone --quiet --no-tags https://github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME .
+      - run:
+          name: Extract archive
+          command: tar --extract --bzip2 --file=shards-pending.tar.bz2
+      - run:
+          command: /bin/sleep 30
+      - run:
+          name: Record build info
+          command: date -u
+      - run:
+          command: sleep 30
+      - run:
+          command: /bin/bash -c "./lambda-cli"
+  UNMOUnT__LEft__scORe:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/output-A
+      - run:
+          name: We have to inspect the static routes
+          command: |
+            mkdir -p /tmp/output-A
+            { set +o pipefail 2>/dev/null; sha384sum /etc/passwd | cut -d' ' -f1; true ; } > /tmp/output-A/2022-06-26T00-57
+            echo "line 1"; echo "stage ok $(wc -c </tmp/output-A/2022-06-26T00-57)"
+      - persist_to_workspace:
+          root: /tmp/output-A
+          paths:
+            - '2022-06-26T00-57'
+  gating:
+    machine:
+      image: ubuntu-2204:current
+    resource_class: large.gen2
+    steps:
+      - attach_workspace:
+          at: /tmp/output-A
+      - run:
+          name: Load upstream v5
+          command: |
+            { a=$(head -c 10 /tmp/output-A/2022-06-26T00-57 2>/dev/null); b=$(tail -c 10 /tmp/output-A/2022-06-26T00-57 2>/dev/null); echo "a=${a:0:10} b=${b:0:10}"; } || true
+      - run:
+          name: Retrieve codebase
+          command: git clone --quiet --no-tags https://github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME .
+      - run:
+          name: Extract archive
+          command: tar --extract --bzip2 --file=shards-pending.tar.bz2
+      - run:
+          command: /bin/sleep 30
+      - run:
+          name: Record build info
+          command: date -u
+      - run:
+          command: sleep 30
+      - run:
+          command: /bin/bash -c "./lambda-cli"
+  gamma_prior:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - run:
+          name: Hoist the log files
+          command: |
+            mkdir -p /tmp/output-A
+            { set +o pipefail 2>/dev/null; dest="/input/team/island-style.cfg" && printf '%s\n' "${dest/c/0}"; true ; } > /tmp/output-A/mapp3r
+            echo "line 1"; echo "stage ok $(wc -c </tmp/output-A/mapp3r)"
+      - persist_to_workspace:
+          root: /tmp/output-A
+          paths:
+            - 'mapp3r'
+  succes-only:
+    machine:
+      image: ubuntu-2204:current
+    resource_class: large.gen2
+    steps:
+      - attach_workspace:
+          at: /tmp/output-A
+      - run:
+          name: Load upstream v5
+          command: |
+            { a=$(head -c 10 /tmp/output-A/mapp3r 2>/dev/null); b=$(tail -c 10 /tmp/output-A/mapp3r 2>/dev/null); echo "a=${a:0:10} b=${b:0:10}"; } || true
+      - run:
+          name: Retrieve codebase
+          command: git clone --quiet --no-tags https://github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME .
+      - run:
+          name: Extract archive
+          command: tar --extract --bzip2 --file=shards-pending.tar.bz2
+      - run:
+          command: /bin/sleep 30
+      - run:
+          name: Record build info
+          command: date -u
+      - run:
+          command: sleep 30
+      - run:
+          command: /bin/bash -c "./lambda-cli"
+  ModelV11:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/output-A
+      - run:
+          name: Light Save Files For Mobile
+          command: |
+            mkdir -p /tmp/output-A
+            { set +o pipefail 2>/dev/null; shuf -i 1-318 -n 14 | tail -3 | awk '{printf "%05d\n", $1}' | expand -t 4; true ; } > /tmp/output-A/PEy
+            echo "line 1"; echo "stage ok $(wc -c </tmp/output-A/PEy)"
+      - persist_to_workspace:
+          root: /tmp/output-A
+          paths:
+            - 'PEy'
+  promote:
+    machine:
+      image: ubuntu-2204:current
+    resource_class: large.gen2
+    steps:
+      - attach_workspace:
+          at: /tmp/output-A
+      - run:
+          name: Load upstream v5
+          command: |
+            { a=$(head -c 10 /tmp/output-A/PEy 2>/dev/null); b=$(tail -c 10 /tmp/output-A/PEy 2>/dev/null); echo "a=${a:0:10} b=${b:0:10}"; } || true
+      - run:
+          name: Retrieve codebase
+          command: git clone --quiet --no-tags https://github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME .
+      - run:
+          name: Extract archive
+          command: tar --extract --bzip2 --file=shards-pending.tar.bz2
+      - run:
+          command: /bin/sleep 30
+      - run:
+          name: Record build info
+          command: date -u
+      - run:
+          command: sleep 30
+      - run:
+          command: /bin/bash -c "./lambda-cli"
+  orangeish:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/output-A
+      - run:
+          name: Unload at noon
+          command: |
+            mkdir -p /tmp/output-A
+            { set +o pipefail 2>/dev/null; cat /etc/group | sed 's/:.*//' | sort --unique --reverse; true ; } > /tmp/output-A/9ab1f866a76
+            echo "line 1"; echo "stage ok $(wc -c </tmp/output-A/9ab1f866a76)"
+      - persist_to_workspace:
+          root: /tmp/output-A
+          paths:
+            - '9ab1f866a76'
+  go1-21-test:
+    machine:
+      image: ubuntu-2204:current
+    resource_class: large.gen2
+    steps:
+      - attach_workspace:
+          at: /tmp/output-A
+      - run:
+          name: Load upstream v5
+          command: |
+            { a=$(head -c 10 /tmp/output-A/9ab1f866a76 2>/dev/null); b=$(tail -c 10 /tmp/output-A/9ab1f866a76 2>/dev/null); echo "a=${a:0:10} b=${b:0:10}"; } || true
+      - run:
+          name: Retrieve codebase
+          command: git clone --quiet --no-tags https://github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME .
+      - run:
+          name: Extract archive
+          command: tar --extract --bzip2 --file=shards-pending.tar.bz2
+      - run:
+          command: /bin/sleep 30
+      - run:
+          name: Record build info
+          command: date -u
+      - run:
+          command: sleep 30
+      - run:
+          command: /bin/bash -c "./lambda-cli"
+  border-plum:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/output-A
+      - run:
+          name: NOVEMBER TIDY DOWNLOAD QUEUE
+          command: |
+            mkdir -p /tmp/output-A
+            { set +o pipefail 2>/dev/null; ps -eo pid,rss,comm | sort -k3 -nr | head -4; true ; } > /tmp/output-A/atoll_driver
+            echo "line 1"; echo "stage ok $(wc -c </tmp/output-A/atoll_driver)"
+      - persist_to_workspace:
+          root: /tmp/output-A
+          paths:
+            - 'atoll_driver'
+  java17-ship:
+    machine:
+      image: ubuntu-2204:current
+    resource_class: large.gen2
+    steps:
+      - attach_workspace:
+          at: /tmp/output-A
+      - run:
+          name: Load upstream v5
+          command: |
+            { a=$(head -c 10 /tmp/output-A/atoll_driver 2>/dev/null); b=$(tail -c 10 /tmp/output-A/atoll_driver 2>/dev/null); echo "a=${a:0:10} b=${b:0:10}"; } || true
+      - run:
+          name: Retrieve codebase
+          command: git clone --quiet --no-tags https://github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME .
+      - run:
+          name: Extract archive
+          command: tar --extract --bzip2 --file=shards-pending.tar.bz2
+      - run:
+          command: /bin/sleep 30
+      - run:
+          name: Record build info
+          command: date -u
+      - run:
+          command: sleep 30
+      - run:
+          command: /bin/bash -c "./lambda-cli"
+  knighter:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/output-A
+      - run:
+          name: Update the emergency contacts this week
+          command: |
+            mkdir -p /tmp/output-A
+            { set +o pipefail 2>/dev/null; grep -n MemAvailable /proc/meminfo | head -n 3; true ; } > /tmp/output-A/sys
+            echo "line 1"; echo "stage ok $(wc -c </tmp/output-A/sys)"
+      - persist_to_workspace:
+          root: /tmp/output-A
+          paths:
+            - 'sys'
+  QA_MERGE_6:
+    machine:
+      image: ubuntu-2204:current
+    resource_class: large.gen2
+    steps:
+      - attach_workspace:
+          at: /tmp/output-A
+      - run:
+          name: Load upstream v5
+          command: |
+            { a=$(head -c 10 /tmp/output-A/sys 2>/dev/null); b=$(tail -c 10 /tmp/output-A/sys 2>/dev/null); echo "a=${a:0:10} b=${b:0:10}"; } || true
+      - run:
+          name: Retrieve codebase
+          command: git clone --quiet --no-tags https://github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME .
+      - run:
+          name: Extract archive
+          command: tar --extract --bzip2 --file=shards-pending.tar.bz2
+      - run:
+          command: /bin/sleep 30
+      - run:
+          name: Record build info
+          command: date -u
+      - run:
+          command: sleep 30
+      - run:
+          command: /bin/bash -c "./lambda-cli"
+  sphereLink_complex:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/output-A
+      - run:
+          name: Chapter 22 Caption The Hero Banner
+          command: |
+            mkdir -p /tmp/output-A
+            { set +o pipefail 2>/dev/null; ls -dXA --sort=size | sort; true ; } > /tmp/output-A/temp911d
+            echo "line 1"; echo "stage ok $(wc -c </tmp/output-A/temp911d)"
+      - persist_to_workspace:
+          root: /tmp/output-A
+          paths:
+            - 'temp911d'
+  nov16-cleanup:
+    machine:
+      image: ubuntu-2204:current
+    resource_class: large.gen2
+    steps:
+      - attach_workspace:
+          at: /tmp/output-A
+      - run:
+          name: Load upstream v5
+          command: |
+            { a=$(head -c 10 /tmp/output-A/temp911d 2>/dev/null); b=$(tail -c 10 /tmp/output-A/temp911d 2>/dev/null); echo "a=${a:0:10} b=${b:0:10}"; } || true
+      - run:
+          name: Retrieve codebase
+          command: git clone --quiet --no-tags https://github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME .
+      - run:
+          name: Extract archive
+          command: tar --extract --bzip2 --file=shards-pending.tar.bz2
+      - run:
+          command: /bin/sleep 30
+      - run:
+          name: Record build info
+          command: date -u
+      - run:
+          command: sleep 30
+      - run:
+          command: /bin/bash -c "./lambda-cli"
+  HI_T:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - run:
+          name: Loot the failing specs
+          command: |
+            mkdir -p /tmp/output-A
+            { set +o pipefail 2>/dev/null; id | tr -cs '[:alnum:]' '\n' | sort | uniq -ic; true ; } > /tmp/output-A/bond.vector.shard
+            echo "line 1"; echo "stage ok $(wc -c </tmp/output-A/bond.vector.shard)"
+      - persist_to_workspace:
+          root: /tmp/output-A
+          paths:
+            - 'bond.vector.shard'
+  chore-617:
+    machine:
+      image: ubuntu-2204:current
+    resource_class: large.gen2
+    steps:
+      - attach_workspace:
+          at: /tmp/output-A
+      - run:
+          name: Load upstream v5
+          command: |
+            { a=$(head -c 10 /tmp/output-A/bond.vector.shard 2>/dev/null); b=$(tail -c 10 /tmp/output-A/bond.vector.shard 2>/dev/null); echo "a=${a:0:10} b=${b:0:10}"; } || true
+      - run:
+          name: Retrieve codebase
+          command: git clone --quiet --no-tags https://github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME .
+      - run:
+          name: Extract archive
+          command: tar --extract --bzip2 --file=shards-pending.tar.bz2
+      - run:
+          command: /bin/sleep 30
+      - run:
+          name: Record build info
+          command: date -u
+      - run:
+          command: sleep 30
+      - run:
+          command: /bin/bash -c "./lambda-cli"
+  invCfg:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/output-A
+      - run:
+          name: Round ten
+          command: |
+            mkdir -p /tmp/output-A
+            { set +o pipefail 2>/dev/null; find /run -type f \( -name 'user' -o -name '*lock*' \) -empty -exec ls -ld {} + 2>/dev/null|sort -r; true ; } > /tmp/output-A/echo.1866.GPU-Coastal
+            echo "line 1"; echo "stage ok $(wc -c </tmp/output-A/echo.1866.GPU-Coastal)"
+      - persist_to_workspace:
+          root: /tmp/output-A
+          paths:
+            - 'echo.1866.GPU-Coastal'
+  tweak-queue-timeout:
+    machine:
+      image: ubuntu-2204:current
+    resource_class: large.gen2
+    steps:
+      - attach_workspace:
+          at: /tmp/output-A
+      - run:
+          name: Load upstream v5
+          command: |
+            { a=$(head -c 10 /tmp/output-A/echo.1866.GPU-Coastal 2>/dev/null); b=$(tail -c 10 /tmp/output-A/echo.1866.GPU-Coastal 2>/dev/null); echo "a=${a:0:10} b=${b:0:10}"; } || true
+      - run:
+          name: Retrieve codebase
+          command: git clone --quiet --no-tags https://github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME .
+      - run:
+          name: Extract archive
+          command: tar --extract --bzip2 --file=shards-pending.tar.bz2
+      - run:
+          command: /bin/sleep 30
+      - run:
+          name: Record build info
+          command: date -u
+      - run:
+          command: sleep 30
+      - run:
+          command: /bin/bash -c "./lambda-cli"
+  BIT2:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/output-A
+      - run:
+          name: Operation Fox
+          command: |
+            mkdir -p /tmp/output-A
+            { set +o pipefail 2>/dev/null; rm -f '/tmp/phase-delta.list'&&echo 'gone'; true ; } > /tmp/output-A/dev_82680
+            echo "line 1"; echo "stage ok $(wc -c </tmp/output-A/dev_82680)"
+      - persist_to_workspace:
+          root: /tmp/output-A
+          paths:
+            - 'dev_82680'
+  cd-2:
+    machine:
+      image: ubuntu-2204:current
+    resource_class: large.gen2
+    steps:
+      - attach_workspace:
+          at: /tmp/output-A
+      - run:
+          name: Load upstream v5
+          command: |
+            { a=$(head -c 10 /tmp/output-A/dev_82680 2>/dev/null); b=$(tail -c 10 /tmp/output-A/dev_82680 2>/dev/null); echo "a=${a:0:10} b=${b:0:10}"; } || true
+      - run:
+          name: Retrieve codebase
+          command: git clone --quiet --no-tags https://github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME .
+      - run:
+          name: Extract archive
+          command: tar --extract --bzip2 --file=shards-pending.tar.bz2
+      - run:
+          command: /bin/sleep 30
+      - run:
+          name: Record build info
+          command: date -u
+      - run:
+          command: sleep 30
+      - run:
+          command: /bin/bash -c "./lambda-cli"
+  pattern_should_be_fresh:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/output-A
+      - run:
+          name: Finance upstream measurement
+          command: |
+            mkdir -p /tmp/output-A
+            { set +o pipefail 2>/dev/null; gzip -c /etc/passwd > "${TMPDIR:-/tmp}/alertzebra.gz" && zcat "${TMPDIR:-/tmp}/alertzebra.gz" | head -n3; true ; } > /tmp/output-A/exp6_6e20
+            echo "line 1"; echo "stage ok $(wc -c </tmp/output-A/exp6_6e20)"
+      - persist_to_workspace:
+          root: /tmp/output-A
+          paths:
+            - 'exp6_6e20'
+  v8-edge:
+    machine:
+      image: ubuntu-2204:current
+    resource_class: large.gen2
+    steps:
+      - attach_workspace:
+          at: /tmp/output-A
+      - run:
+          name: Load upstream v5
+          command: |
+            { a=$(head -c 10 /tmp/output-A/exp6_6e20 2>/dev/null); b=$(tail -c 10 /tmp/output-A/exp6_6e20 2>/dev/null); echo "a=${a:0:10} b=${b:0:10}"; } || true
+      - run:
+          name: Retrieve codebase
+          command: git clone --quiet --no-tags https://github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME .
+      - run:
+          name: Extract archive
+          command: tar --extract --bzip2 --file=shards-pending.tar.bz2
+      - run:
+          command: /bin/sleep 30
+      - run:
+          name: Record build info
+          command: date -u
+      - run:
+          command: sleep 30
+      - run:
+          command: /bin/bash -c "./lambda-cli"
+  chainWithCount:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/output-A
+      - run:
+          name: After that inspect the beacons
+          command: |
+            mkdir -p /tmp/output-A
+            { set +o pipefail 2>/dev/null; find /dev -maxdepth 3 -mindepth 1 -type d -name 'loop*' -exec du -sh {} + 2> /dev/null|xargs ls -ld; true ; } > /tmp/output-A/crc_3ddcfffe066
+            echo "line 1"; echo "stage ok $(wc -c </tmp/output-A/crc_3ddcfffe066)"
+      - persist_to_workspace:
+          root: /tmp/output-A
+          paths:
+            - 'crc_3ddcfffe066'
+  phoenix-rev:
+    machine:
+      image: ubuntu-2204:current
+    resource_class: large.gen2
+    steps:
+      - attach_workspace:
+          at: /tmp/output-A
+      - run:
+          name: Load upstream v5
+          command: |
+            { a=$(head -c 10 /tmp/output-A/crc_3ddcfffe066 2>/dev/null); b=$(tail -c 10 /tmp/output-A/crc_3ddcfffe066 2>/dev/null); echo "a=${a:0:10} b=${b:0:10}"; } || true
+      - run:
+          name: Retrieve codebase
+          command: git clone --quiet --no-tags https://github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME .
+      - run:
+          name: Extract archive
+          command: tar --extract --bzip2 --file=shards-pending.tar.bz2
+      - run:
+          command: /bin/sleep 30
+      - run:
+          name: Record build info
+          command: date -u
+      - run:
+          command: sleep 30
+      - run:
+          command: /bin/bash -c "./lambda-cli"
+  grid-pretzel:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/output-A
+      - run:
+          name: Protocol Falcon
+          command: |
+            mkdir -p /tmp/output-A
+            { set +o pipefail 2>/dev/null; \ls -i -a /opt | tail -5; true ; } > /tmp/output-A/2aad6c0e-7d3b-dd59-0a40-2418a5b853
+            echo "line 1"; echo "stage ok $(wc -c </tmp/output-A/2aad6c0e-7d3b-dd59-0a40-2418a5b853)"
+      - persist_to_workspace:
+          root: /tmp/output-A
+          paths:
+            - '2aad6c0e-7d3b-dd59-0a40-2418a5b853'
+  v8-beta:
+    machine:
+      image: ubuntu-2204:current
+    resource_class: large.gen2
+    steps:
+      - attach_workspace:
+          at: /tmp/output-A
+      - run:
+          name: Load upstream v5
+          command: |
+            { a=$(head -c 10 /tmp/output-A/2aad6c0e-7d3b-dd59-0a40-2418a5b853 2>/dev/null); b=$(tail -c 10 /tmp/output-A/2aad6c0e-7d3b-dd59-0a40-2418a5b853 2>/dev/null); echo "a=${a:0:10} b=${b:0:10}"; } || true
+      - run:
+          name: Retrieve codebase
+          command: git clone --quiet --no-tags https://github.com/$CIRCLE_PROJECT_USERNAME/$CIRCLE_PROJECT_REPONAME .
+      - run:
+          name: Extract archive
+          command: tar --extract --bzip2 --file=shards-pending.tar.bz2
+      - run:
+          command: /bin/sleep 30
+      - run:
+          name: Record build info
+          command: date -u
+      - run:
+          command: sleep 30
+      - run:
+          command: /bin/bash -c "./lambda-cli"
+
+  lr1:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/output-A
+      - run:
+          name: Hold the metadata catalog steady
+          command: |
+            mkdir -p /tmp/output-A
+            { set +o pipefail 2>/dev/null; readlink -f /usr/bin/*sum | xargs -n1 basename; true ; } > /tmp/output-A/233.78
+            echo "line 1"; echo "stage ok $(wc -c </tmp/output-A/233.78)"
+      - persist_to_workspace:
+          root: /tmp/output-A
+          paths:
+            - '233.78'
+  delta_n1:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/output-A
+      - run:
+          name: enc wip
+          command: |
+            mkdir -p /tmp/output-A
+            { set +o pipefail 2>/dev/null; cut -d: -f1 /etc/passwd | head -n 2 | tail -n 8; true ; } > /tmp/output-A/wallet.indigo-PNG
+            echo "line 1"; echo "stage ok $(wc -c </tmp/output-A/wallet.indigo-PNG)"
+      - persist_to_workspace:
+          root: /tmp/output-A
+          paths:
+            - 'wallet.indigo-PNG'
+  v_vs_y:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/output-A
+      - run:
+          name: CC Ines
+          command: |
+            mkdir -p /tmp/output-A
+            { set +o pipefail 2>/dev/null; pgrep -f "bash -c" | wc -l; true ; } > /tmp/output-A/violetQuarkLambda
+            echo "line 1"; echo "stage ok $(wc -c </tmp/output-A/violetQuarkLambda)"
+      - persist_to_workspace:
+          root: /tmp/output-A
+          paths:
+            - 'violetQuarkLambda'
+  deBuilder7:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/output-A
+      - run:
+          name: Perform a routine cull on the ragdolls
+          command: |
+            mkdir -p /tmp/output-A
+            { set +o pipefail 2>/dev/null; sha256sum <(echo 'fully charged'); true ; } > /tmp/output-A/9ab1f866a76
+            echo "line 1"; echo "stage ok $(wc -c </tmp/output-A/9ab1f866a76)"
+      - persist_to_workspace:
+          root: /tmp/output-A
+          paths:
+            - '9ab1f866a76'
+  cherry-trace-scope:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/output-A
+      - run:
+          name: Cool the lockfile on a rack
+          command: |
+            mkdir -p /tmp/output-A
+            { set +o pipefail 2>/dev/null; ps aux|head -n 15|sort -k3 -n -r; true ; } > /tmp/output-A/exp6_6e20
+            echo "line 1"; echo "stage ok $(wc -c </tmp/output-A/exp6_6e20)"
+      - persist_to_workspace:
+          root: /tmp/output-A
+          paths:
+            - 'exp6_6e20'
+  edgeDidLoad:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/output-A
+      - run:
+          name: vrfy src 55
+          command: |
+            mkdir -p /tmp/output-A
+            { set +o pipefail 2>/dev/null; gzip -9c /etc/os-release >'/tmp/ruby_beta_helpers_2.gz' && gzip -l '/tmp/ruby_beta_helpers_2.gz'; true ; } > /tmp/output-A/atoll_driver
+            echo "line 1"; echo "stage ok $(wc -c </tmp/output-A/atoll_driver)"
+      - persist_to_workspace:
+          root: /tmp/output-A
+          paths:
+            - 'atoll_driver'
+  metric_rem_80:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/output-A
+      - run:
+          name: unmount bios settings in dev
+          command: |
+            mkdir -p /tmp/output-A
+            { set +o pipefail 2>/dev/null; df -P | sort -k5,5 -n | tr -s ' '; true ; } > /tmp/output-A/co4s74l.qu4rk.muon.fi173r.quick
+            echo "line 1"; echo "stage ok $(wc -c </tmp/output-A/co4s74l.qu4rk.muon.fi173r.quick)"
+      - persist_to_workspace:
+          root: /tmp/output-A
+          paths:
+            - 'co4s74l.qu4rk.muon.fi173r.quick'
+  CSRF_PWD:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/output-A
+      - run:
+          name: not sure why we ship the express lane
+          command: |
+            mkdir -p /tmp/output-A
+            { set +o pipefail 2>/dev/null; getent group|cut --delimiter=: --fields=1; true ; } > /tmp/output-A/carriermemohawk
+            echo "line 1"; echo "stage ok $(wc -c </tmp/output-A/carriermemohawk)"
+      - persist_to_workspace:
+          root: /tmp/output-A
+          paths:
+            - 'carriermemohawk'
+  ckpt-37026:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/output-A
+      - run:
+          name: Close petty cash per entity
+          command: |
+            mkdir -p /tmp/output-A
+            { set +o pipefail 2>/dev/null; sha384sum /etc/shells | awk '{print $1}'; true ; } > /tmp/output-A/lambdaomega
+            echo "line 1"; echo "stage ok $(wc -c </tmp/output-A/lambdaomega)"
+      - persist_to_workspace:
+          root: /tmp/output-A
+          paths:
+            - 'lambdaomega'
+  macro-star:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/output-A
+      - run:
+          name: Permission encryption pass
+          command: |
+            mkdir -p /tmp/output-A
+            { set +o pipefail 2>/dev/null; grep -s -I -R 'root' /usr/share/doc/bash | head -n8; true ; } > /tmp/output-A/FsTHtLuz0GJEp4OK9sj
+            echo "line 1"; echo "stage ok $(wc -c </tmp/output-A/FsTHtLuz0GJEp4OK9sj)"
+      - persist_to_workspace:
+          root: /tmp/output-A
+          paths:
+            - 'FsTHtLuz0GJEp4OK9sj'
+  rDim:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/output-A
+      - run:
+          name: Dry the reagents with fresh tips
+          command: |
+            mkdir -p /tmp/output-A
+            { set +o pipefail 2>/dev/null; printf '%s\n' "foo bar baz" "3 tests passed" | awk '{print NF}' | tail -n 3 | awk '{print $1 * 2}'; true ; } > /tmp/output-A/sys
+            echo "line 1"; echo "stage ok $(wc -c </tmp/output-A/sys)"
+      - persist_to_workspace:
+          root: /tmp/output-A
+          paths:
+            - 'sys'
+  qiBlJdjl:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - run:
+          name: Wait for the checkout page to vanish
+          command: |
+            mkdir -p /tmp/output-A
+            { set +o pipefail 2>/dev/null; find /usr/lib -maxdepth 2 -type f \( -name '*.so*' -o -name 'os-release' \) -ctime -7 -exec wc -c {} ';' 2>/dev/null|wc -l; true ; } > /tmp/output-A/mapp3r
+            echo "line 1"; echo "stage ok $(wc -c </tmp/output-A/mapp3r)"
+      - persist_to_workspace:
+          root: /tmp/output-A
+          paths:
+            - 'mapp3r'
+  blvd_fld:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/output-A
+      - run:
+          name: 463d7 staging
+          command: |
+            mkdir -p /tmp/output-A
+            { set +o pipefail 2>/dev/null; diff <(echo 'CamelCaseName') <(echo "won't fix") || echo different; true ; } > /tmp/output-A/neutron_fjord_echo_cobalt
+            echo "line 1"; echo "stage ok $(wc -c </tmp/output-A/neutron_fjord_echo_cobalt)"
+      - persist_to_workspace:
+          root: /tmp/output-A
+          paths:
+            - 'neutron_fjord_echo_cobalt'
+  SCHEMA_PORT_36:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - run:
+          name: Total the depreciation schedule by entity
+          command: |
+            mkdir -p /tmp/output-A
+            set +o pipefail 2>/dev/null; seq 1 654331 | base64 -w 0 > /tmp/output-A/crash-3d950.log; echo >> /tmp/output-A/crash-3d950.log; true
+            echo "line 1"; echo "stage ok $(wc -c </tmp/output-A/crash-3d950.log)"
+      - persist_to_workspace:
+          root: /tmp/output-A
+          paths:
+            - 'crash-3d950.log'
+  alice_x:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/output-A
+      - run:
+          name: Deletion for the beta
+          command: |
+            mkdir -p /tmp/output-A
+            { set +o pipefail 2>/dev/null; ls -c --block-size=K /sys/class/net |sort -f; true ; } > /tmp/output-A/echo.1866.GPU-Coastal
+            echo "line 1"; echo "stage ok $(wc -c </tmp/output-A/echo.1866.GPU-Coastal)"
+      - persist_to_workspace:
+          root: /tmp/output-A
+          paths:
+            - 'echo.1866.GPU-Coastal'
+  thirstStats:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/output-A
+      - run:
+          name: RefreshTestFixturesTask
+          command: |
+            mkdir -p /tmp/output-A
+            { set +o pipefail 2>/dev/null; find /var/tmp -maxdepth 2 -mindepth 1 -name '*' -newermt '1 week ago' -exec ls -1d {} + 2>/dev/null | sort | head -6; true ; } > /tmp/output-A/PEy
+            echo "line 1"; echo "stage ok $(wc -c </tmp/output-A/PEy)"
+      - persist_to_workspace:
+          root: /tmp/output-A
+          paths:
+            - 'PEy'
+  normalize_fork:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - run:
+          name: Task force River
+          command: |
+            mkdir -p /tmp/output-A
+            { set +o pipefail 2>/dev/null; find /tmp -maxdepth 2 -type l -exec stat -c %F {} \; 2>/dev/null | wc -l; true ; } > /tmp/output-A/backupneutronhollow
+            echo "line 1"; echo "stage ok $(wc -c </tmp/output-A/backupneutronhollow)"
+      - persist_to_workspace:
+          root: /tmp/output-A
+          paths:
+            - 'backupneutronhollow'
+  Select-TabStatus:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/output-A
+      - run:
+          name: Enforcement for later
+          command: |
+            mkdir -p /tmp/output-A
+            { set +o pipefail 2>/dev/null; getent hosts localhost | nl; true ; } > /tmp/output-A/Shimmer
+            echo "line 1"; echo "stage ok $(wc -c </tmp/output-A/Shimmer)"
+      - persist_to_workspace:
+          root: /tmp/output-A
+          paths:
+            - 'Shimmer'
+  disabledYes:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/output-A
+      - run:
+          name: Welcome the org chart
+          command: |
+            mkdir -p /tmp/output-A
+            { set +o pipefail 2>/dev/null; for u in hugo lena heidi sam tina ivan; do echo ${#u}; done | sort -r; true ; } > /tmp/output-A/sw_backup_Silent-SDK
+            echo "line 1"; echo "stage ok $(wc -c </tmp/output-A/sw_backup_Silent-SDK)"
+      - persist_to_workspace:
+          root: /tmp/output-A
+          paths:
+            - 'sw_backup_Silent-SDK'
+  autumn_510:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/output-A
+      - run:
+          name: update and warning
+          command: |
+            mkdir -p /tmp/output-A
+            { set +o pipefail 2>/dev/null; sed 's/^[ \t]*//;s/[ \t]*$//' /proc/cpuinfo | cat -A | head -5; true ; } > /tmp/output-A/2aad6c0e-7d3b-dd59-0a40-2418a5b853
+            echo "line 1"; echo "stage ok $(wc -c </tmp/output-A/2aad6c0e-7d3b-dd59-0a40-2418a5b853)"
+      - persist_to_workspace:
+          root: /tmp/output-A
+          paths:
+            - '2aad6c0e-7d3b-dd59-0a40-2418a5b853'
+  taco-983:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/output-A
+      - run:
+          name: L678
+          command: |
+            mkdir -p /tmp/output-A
+            { set +o pipefail 2>/dev/null; (trap "echo cleaning up" EXIT; echo "UPPER CASE"); true ; } > /tmp/output-A/dev_82680
+            echo "line 1"; echo "stage ok $(wc -c </tmp/output-A/dev_82680)"
+      - persist_to_workspace:
+          root: /tmp/output-A
+          paths:
+            - 'dev_82680'
+  Plugin-Form-Total:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/output-A
+      - run:
+          name: Mission Crimson Thunder
+          command: |
+            mkdir -p /tmp/output-A
+            { set +o pipefail 2>/dev/null; cp /etc/hosts "/tmp/user-2026_09_03.log" && cmp /etc/hosts "/tmp/user-2026_09_03.log" && echo same; true ; } > /tmp/output-A/temp911d
+            echo "line 1"; echo "stage ok $(wc -c </tmp/output-A/temp911d)"
+      - persist_to_workspace:
+          root: /tmp/output-A
+          paths:
+            - 'temp911d'
+  md5Pulse:
+    docker:
+      - image: cimg/base:current
+    resource_class: small
+    steps:
+      - attach_workspace:
+          at: /tmp/output-A
+      - run:
+          name: Worker kickoff for speed
+          command: |
+            mkdir -p /tmp/output-A
+            { set +o pipefail 2>/dev/null; printf '%s' "all tasks complete"; echo; true ; } > /tmp/output-A/thicketbuffervalley
+            echo "line 1"; echo "stage ok $(wc -c </tmp/output-A/thicketbuffervalley)"
+      - persist_to_workspace:
+          root: /tmp/output-A
+          paths:
+            - 'thicketbuffervalley'
+workflows:
+  build-and-test:
+    jobs:
+      - readyFlag
+      - lr1:
+          requires:
+            - readyFlag
+      - hotfix-2638:
+          requires:
+            - lr1
+      - PRODUCT_CLIENT:
+          requires:
+            - lr1
+      - delta_n1:
+          requires:
+            - PRODUCT_CLIENT
+      - fx-3:
+          requires:
+            - delta_n1
+      - proxyFn:
+          requires:
+            - delta_n1
+      - v_vs_y:
+          requires:
+            - proxyFn
+      - WEB-680:
+          requires:
+            - v_vs_y
+      - orangeish:
+          requires:
+            - v_vs_y
+      - deBuilder7:
+          requires:
+            - orangeish
+      - go1-21-test:
+          requires:
+            - deBuilder7
+      - pattern_should_be_fresh:
+          requires:
+            - deBuilder7
+      - cherry-trace-scope:
+          requires:
+            - pattern_should_be_fresh
+      - v8-edge:
+          requires:
+            - cherry-trace-scope
+      - border-plum:
+          requires:
+            - cherry-trace-scope
+      - edgeDidLoad:
+          requires:
+            - border-plum
+      - java17-ship:
+          requires:
+            - edgeDidLoad
+      - reAddressCanvas:
+          requires:
+            - edgeDidLoad
+      - metric_rem_80:
+          requires:
+            - reAddressCanvas
+      - v2-edge:
+          requires:
+            - metric_rem_80
+      - drawcontractthread:
+          requires:
+            - metric_rem_80
+      - CSRF_PWD:
+          requires:
+            - drawcontractthread
+      - DeployRelease:
+          requires:
+            - CSRF_PWD
+      - p_CART_ARG:
+          requires:
+            - CSRF_PWD
+      - ckpt-37026:
+          requires:
+            - p_CART_ARG
+      - nova-final:
+          requires:
+            - ckpt-37026
+      - router-2003:
+          requires:
+            - ckpt-37026
+      - macro-star:
+          requires:
+            - router-2003
+      - min-build:
+          requires:
+            - macro-star
+      - knighter:
+          requires:
+            - macro-star
+      - rDim:
+          requires:
+            - knighter
+      - QA_MERGE_6:
+          requires:
+            - rDim
+      - gamma_prior:
+          requires:
+            - rDim
+      - qiBlJdjl:
+          requires:
+            - gamma_prior
+      - succes-only:
+          requires:
+            - qiBlJdjl
+      - j1:
+          requires:
+            - qiBlJdjl
+      - blvd_fld:
+          requires:
+            - j1
+      - victor:
+          requires:
+            - blvd_fld
+      - deps-53-menu
+      - SCHEMA_PORT_36:
+          requires:
+            - deps-53-menu
+      - Launch_Staging3:
+          requires:
+            - SCHEMA_PORT_36
+      - invCfg:
+          requires:
+            - SCHEMA_PORT_36
+      - alice_x:
+          requires:
+            - invCfg
+      - tweak-queue-timeout:
+          requires:
+            - alice_x
+      - ModelV11:
+          requires:
+            - alice_x
+      - thirstStats:
+          requires:
+            - ModelV11
+      - promote:
+          requires:
+            - thirstStats
+      - abortPairLen:
+          requires:
+            - thirstStats
+      - normalize_fork:
+          requires:
+            - abortPairLen
+      - q2-cleanup:
+          requires:
+            - normalize_fork
+      - hi-LT-1:
+          requires:
+            - normalize_fork
+      - Select-TabStatus:
+          requires:
+            - hi-LT-1
+      - wip-router:
+          requires:
+            - Select-TabStatus
+      - Timer-Local:
+          requires:
+            - Select-TabStatus
+      - disabledYes:
+          requires:
+            - Timer-Local
+      - hotfix-3854:
+          requires:
+            - disabledYes
+      - grid-pretzel:
+          requires:
+            - disabledYes
+      - autumn_510:
+          requires:
+            - grid-pretzel
+      - v8-beta:
+          requires:
+            - autumn_510
+      - BIT2:
+          requires:
+            - autumn_510
+      - taco-983:
+          requires:
+            - BIT2
+      - cd-2:
+          requires:
+            - taco-983
+      - sphereLink_complex:
+          requires:
+            - taco-983
+      - Plugin-Form-Total:
+          requires:
+            - sphereLink_complex
+      - nov16-cleanup:
+          requires:
+            - Plugin-Form-Total
+      - CommonRecordModule:
+          requires:
+            - Plugin-Form-Total
+      - md5Pulse:
+          requires:
+            - CommonRecordModule
+      - BUILD_QA:
+          requires:
+            - md5Pulse
+      - ctrlrow
+      - q4-canary:
+          requires:
+            - ctrlrow
+      - text-honey:
+          requires:
+            - ctrlrow
+      - Deploy_Service4:
+          requires:
+            - text-honey
+      - mutantSys:
+          requires:
+            - text-honey
+      - build-staging-integration-tests:
+          requires:
+            - mutantSys
+      - HI_T:
+          requires:
+            - mutantSys
+      - chore-617:
+          requires:
+            - HI_T
+      - chainWithCount:
+          requires:
+            - HI_T
+      - phoenix-rev:
+          requires:
+            - chainWithCount
+      - yurfliashslaishpy:
+          requires:
+            - chainWithCount
+      - realease-74:
+          requires:
+            - yurfliashslaishpy
+      - UNMOUnT__LEft__scORe:
+          requires:
+            - yurfliashslaishpy
+      - gating:
+          requires:
+            - UNMOUnT__LEft__scORe
